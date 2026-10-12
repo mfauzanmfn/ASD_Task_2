@@ -16,12 +16,9 @@ address allocate(infotype x) {
     * FS : return new list element with info = x and next element is Null
     */
 
-    address P = NULL;
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-    //----------------------------------------
+    address P = new elmlist;
+    P -> info = x;
+    P -> next = nullptr;
     return P;
 }
 
@@ -41,12 +38,9 @@ void insertFirst(List &L, address P) {
     * IS : List L may be empty
     * FS : element pointed by P became the first element in List L
     */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
 
-
-
-    //----------------------------------------
+    P -> next = L.first;
+    L.first = P;
 }
 
 void insertLast(List &L, address P) {
@@ -54,11 +48,17 @@ void insertLast(List &L, address P) {
     * IS : List L may be empty
     * FS : element pointed by P became the last element in List L
     */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
 
-
-    //----------------------------------------
+    address Q;
+    if (L.first == nullptr){
+        L.first = P;
+    } else {
+        Q = L.first;
+        while (Q -> next != nullptr){
+            Q = Q -> next;
+        }
+        Q -> next = P;
+    }
 }
 
 address findElm(List L, infotype x) {
