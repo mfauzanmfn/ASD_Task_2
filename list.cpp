@@ -23,14 +23,8 @@ address allocate(infotype x) {
 }
 
 void deallocate(address &P) {
-    /**
-    * FS : delete element pointed by P
-    */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-    //----------------------------------------
+    delete P;
+    P = nullptr;
 }
 
 void insertFirst(List &L, address P) {
@@ -62,21 +56,13 @@ void insertLast(List &L, address P) {
 }
 
 address findElm(List L, infotype x) {
-    /**
-    * IS : List L may be empty
-    * FS : returns element with info.ID = x.ID,
-           return Null if such ID is not found
-    */
-
     address P;
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-    //----------------------------------------
+    P = first(L);
+    while (P != nullptr && info(P) != x) {
+        P = next(P);
+    }
     return P;
 }
-
 void deleteFirst(List &L, address &P) {
     /**
     * IS : List L may be empty
@@ -112,19 +98,14 @@ void deleteLast(List &L, address &P) {
 }
 
 void printInfo(List L) {
-    /**
-    * FS : view info of all element inside List L,
-    *      call the view_data function from my_data.h to print the info
-    */
-    //-------------your code here-------------
-    cout<<"your code here"<<endl;
-
-
-    //----------------------------------------
-    cout<<endl;
+    address P;
+    P = first(L);
+    while (P != nullptr) {
+        cout << info(P) << ", ";
+        P = next(P);
+    }
+    cout << endl;
 }
-
-
 void insertAfter(List &L, address Prec, address P) {
     /**
     * IS : Prec and P is not NULL
