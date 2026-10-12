@@ -5,7 +5,7 @@ void createList(List &L) {
     * FS : set first(L) with Null
     */
     //-------------your code here-------------
-    cout<<"your code here"<<endl;
+    L.first = nullptr;
 
 
     //----------------------------------------
